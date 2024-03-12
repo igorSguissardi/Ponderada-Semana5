@@ -1,5 +1,6 @@
 class Animal {
     constructor(nome, idade) {
+        // this.nome = eu defino a variável nome dentro dessa classe
         this.nome = nome;
         this.idade = idade;
     }
@@ -9,19 +10,20 @@ class Animal {
 }
 
 class Gato extends Animal {
-    constructor(cor) {
-        super(nome, idade);
+    constructor(nomeQualquerDaVariavel, idade1, cor) {
+        // o super (só super) puxa o constructor da classe herdada,
+        // entrega o que o método precisa, independendo de como você chama os parâmetros
+        // Parâmetros são definidos fora da função;
+        super(nomeQualquerDaVariavel, idade1);
         this.cor = cor;
         }
+        // a única diferença entre a função e o método é que a função está dentro da classe;
         miar() {
             return "miau";
         }
 }
-const a1 = new Animal("cachorro");
-const a2 = new Gato ("gato");
+// Os parâmetros criados pelo construtor terão que vir de fora
+const a1 = new Animal("cachorro", "35 anos" );
+const a2 = new Gato ("gato", "2 anos", "Alaranjado"); 
 
-a1.idade = "35 anos";
-a2.idade = "2 anos";
-a2.cor = "amarelado";
-
-console.log(a1.descrever() + " " + a2.descrever() + `o gato é ${a2.cor}` + miar())
+console.log(a1.descrever() + " " + a2.descrever() + `o gato é ${a2.cor}` + " " + a2.miar())
